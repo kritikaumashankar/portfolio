@@ -56,7 +56,7 @@ class Content extends React.Component {
 const DivContent = styled.div`
   margin: auto;
   position: relative;
-  top: 1.5vh;
+  top: 4vh;
   width: 35vw;
   height: 72vh;
 `

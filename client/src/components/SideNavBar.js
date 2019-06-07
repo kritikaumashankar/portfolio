@@ -14,7 +14,6 @@ class SideNavBar extends React.Component{
 
   render(){
     
-    console.log(this.props)
     return(
       <StyledDiv>
         <StyledImage src="1.jpeg" circle alt="Kritika Umashankar"/>

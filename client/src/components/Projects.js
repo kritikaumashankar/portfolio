@@ -160,9 +160,5 @@ const items =[
     }
  }
 
-const StyledCardGroup = styled(CardGroup)`
-  width: 100%;
-  padding: 2%;
-  margin: 0% 7%;
-`
+
 export default Projects

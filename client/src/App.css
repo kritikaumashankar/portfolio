@@ -47,3 +47,10 @@ html, body {
   height: 100%;
 }
 
+.carousel-control-prev-icon {
+  background-image: url(./images/arrow-119-256.png);
+}
+
+.carousel-control-next-icon {
+  background-image: url(./images/arrow-19-256.png);
+}

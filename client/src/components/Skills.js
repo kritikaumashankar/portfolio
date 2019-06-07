@@ -67,13 +67,13 @@ const Wrapper = styled.div`
 const items = [
   {
     caption: 'Front - End',
-    src: <Grid style={{ width:'102%',left: '5vw'}}>
+    src: <Grid style={{ width:'25vw',left: '5vw', height: '50vh'}}>
     <Row>
       <GridCol>
         <Row style={{textAlign: 'left'}}>
           <Col><h3 style={{margin:'1vh 10vw', width: '100%', fontSize: '2vw'}}> Front - End</h3></Col>
         </Row>
-        <Row className="show-grid" style={{marginLeft:'1%'}}>
+        <Row className="show-grid" style={{margin:'0 3vw', width:'30vw'}}>
           <Col style={{margin:'2%',}}>
             <Wrapper>
               <Img src="html.png" alt="HTML"/>
@@ -93,7 +93,7 @@ const items = [
             </Wrapper>
           </Col>
           </Row>
-          <Row className="show-grid" style={{marginLeft:'1%'}}>
+          <Row className="show-grid" style={{margin:'0 3vw', width:'30vw'}}>
           <Col style={{margin:'2%',}}>
             <Wrapper>
               <Img src="semantic.png" alt="Semantic-ui"/>
@@ -113,7 +113,7 @@ const items = [
             </Wrapper>
           </Col>
           </Row>
-          <Row className="show-grid" style={{marginLeft:'1%'}}>
+          <Row className="show-grid" style={{margin:'0 3vw', width:'30vw'}}>
           <Col style={{margin:'2%',}}>
             <Wrapper>
               <Img src="react.png" alt="React"/>
@@ -139,13 +139,13 @@ const items = [
   },
   {
     caption: 'Back - End',
-    src: <Grid style={{ width:'102%'}}>
+    src: <Grid style={{ width:'25vw '}}>
     <Row>
       <GridCol>
             <Row style={{textAlign: 'left'}}>
                 <Col><h3 style={{margin:'1vh 10vw', width: '100%', fontSize: '2vw'}}> Back - End</h3></Col>
               </Row>
-              <Row style={{marginLeft:'1%'}}>
+              <Row style={{margin:'0 3vw', width:'30vw'}}>
                 <Col style={{margin:'2%',}}>
                   <Wrapper>
                     <Img src="java.png" alt="JAVA"/>
@@ -165,7 +165,7 @@ const items = [
                   </Wrapper>
                 </Col>
                 </Row>
-                <Row style={{marginLeft:'1%'}}>
+                <Row style={{margin:'0 3vw', width:'30vw'}}>
                 <Col style={{margin:'2%',}}>
                   <Wrapper>
                     <Img src="rails.png" alt="Rails"/>
@@ -197,7 +197,7 @@ const items = [
         <Row style={{textAlign: 'left'}}>
           <Col><h3 style={{margin:'1vh 10vw', width: '100%', fontSize: '2vw'}}>Database</h3></Col>
         </Row>
-        <Row style={{marginLeft:'1%'}}>
+        <Row style={{margin:'0 3vw', width:'30vw'}}>
           <Col style={{margin:'2%',}}>
             <Wrapper>
               <Img src="sql.jpeg" alt="SQL"/>
@@ -282,8 +282,8 @@ const items = [
         previous={this.previous}
       >
         {slides}
-        <CarouselControl style={{color:'black'}}direction="prev" directionText="Previous" onClickHandler={this.previous} />
-        <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+        <CarouselControl style={{color:'black',height: '50vh'}} direction="prev" directionText="Previous" onClickHandler={this.previous} />
+        <CarouselControl style={{color:'black',height: '50vh'}} direction="next" directionText="Next" onClickHandler={this.next} />
       </Carousel>
             
   </StyleContainer>

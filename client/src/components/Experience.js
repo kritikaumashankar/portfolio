@@ -1,15 +1,15 @@
 import React from 'react';
 import{Container,Row, Col} from 'reactstrap';
 import styled from 'styled-components';
+import pdf from '../files/KritikaUmaShankar.pdf'
 const Experience =()=>{
-  const pdfUrl = process.env.PUBLIC_URL+"/KritikaUmaShankar.pdf";
   const docUrl = process.env.PUBLIC_URL+"/KritikaUmaShankar.docx";
   return(
     <StyledContainer>
       <ResumeDiv>
         <span><H2>Resume Download</H2></span>
-        <object height="950" data={pdfUrl} type="application/pdf" width="860">
-          <a href={pdfUrl}><I className='far fa-file-pdf' style={{color:'red',backgroundColor:'white'}}></I></a>
+        <object height="950" data={pdf} type="application/pdf" width="860">
+          <a href={pdf}><I className='far fa-file-pdf' style={{color:'red',backgroundColor:'white'}}></I></a>
         </object>
         <a href={docUrl} download><I className='far fa-file-word' style={{color:'blue',backgroundColor:'white'}}></I></a>
       </ResumeDiv>

@@ -151,7 +151,7 @@ const StyledNav = styled(Nav)`
 `
 const StyledNavItem = styled(NavItem)`
 cursor: pointer;
-${Link}.active{
+a.active{
   h5{
     border-bottom: 4px solid rgb(255, 0, 84);
     color:rgb(255, 0, 84)! important;

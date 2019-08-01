@@ -104,7 +104,7 @@ import Experience from './Experience';
 
  const StyledContainer = styled.div`
  height: 100vh;
- background-image: url(${process.env.PUBLIC_URL+'/project.jpg'});
+ background-image: url(${process.env.PUBLIC_URL+'/Project.jpg'});
    background-size: cover; 
    background-repeat: no-repeat;
    background-attachment: fixed;

@@ -44,14 +44,6 @@ class Footer extends React.Component{
   render() {
     return(
       <Div>
-        <div>
-        </div>
-        <LogoDiv>
-          <a target="blank" href="https://www.facebook.com/kritikaumashankar" style={styles}><I style={styles.svg} className="fab fa-facebook"></I></a><span>|</span> 
-          <a target="blank" href="https://www.linkedin.com/in/kritikaumashankar/" style={styles}><I style={styles.svg} className="fab fa-linkedin"></I></a> | 
-          <a target="blank" href="https://github.com/kritikaumashankar" style={styles}><I style={styles.svg} className="fab fa-github-square"></I></a> | 
-          <a target="blank" href="https://twitter.com/kritikaASK" style={styles}><I style={styles.svg} className="fab fa-twitter"></I></a>
-        </LogoDiv>
         <H5>[ Visits : {this.state.views} ]  </H5>
       </Div>
     )
@@ -60,36 +52,17 @@ class Footer extends React.Component{
 
 const H5 = styled.div`
   font-size: 1vw;
-  float: right;
   margin: 2vh 2vw;
+  float: right;
+  color: rgb(121, 118, 118);
 `
-const I = styled.i`
-&:hover {
-    background: black;  
-    opacity: 1;
-  }
-`
+
 const Div = styled.div`
-  height: 8vh;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  background: 	hsl(0, 0%, 90%);
+  background-color: #313030;
+  width:100%;
+  height: 7.5vh;
 `
-const LogoDiv = styled.div`
-  width: 50%; 
-  text-align: center;
-  margin: 2vh auto;
-`
-const styles = {
-  svg: {
-    color: '#999999', 
-    width: '1.5vw',
-    height: '1.5vw',
-    margin: 'auto 2.5vw'  
-  }
-}
+
 
 export default Footer;
 

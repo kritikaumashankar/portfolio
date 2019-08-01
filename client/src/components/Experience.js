@@ -8,10 +8,8 @@ const Experience =()=>{
     <StyledContainer>
       <ResumeDiv>
         <span><H2>Resume Download</H2></span>
-        <object height="950" data={pdf} type="application/pdf" width="860">
-          <a href={pdf}><I className='far fa-file-pdf' style={{color:'red',backgroundColor:'white'}}></I></a>
-        </object>
-        <a href={docUrl} download><I className='far fa-file-word' style={{color:'blue',backgroundColor:'white'}}></I></a>
+          <a href={pdf} download><I className='far fa-file-pdf' style={{color:'red',backgroundColor:'white'}}></I></a>
+           <a href={docUrl} download><I className='far fa-file-word' style={{color:'blue',backgroundColor:'white'}}></I></a>
       </ResumeDiv>
       <Container>
         <h1>Experience</h1>

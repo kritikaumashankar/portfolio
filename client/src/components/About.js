@@ -11,7 +11,7 @@ import CircularImages from './CircularImages';
             I am an aspiring Software Developer, based out of Salt Lake City, Utah, who is comfortable working in front-end(React, HTML, CSS, Javascript) or back-end(Java, Nodejs).
           </p>
           <p>
-            Being an Electrical Engineer, I always knew I wanted to be Software Developer and learn more technologies. 
+             I always knew I wanted to be Software Developer and learn more technologies. 
             After graduating, I worked at Infosys(Chennai, India) as Java Developer for 3.5 years where I was working in an enterprise web application.
             Last Fall, I graduated from  Univeristy Of Utah, Professional Education, Full Stack Web Development Program(DevPoint Labs) where I learnt React, Ruby, Rails and PostgreSQL.
             After the bootcamp, I started working a lot in React and building simple applications by integrating technologies like MongoDB, Springs, REST with it.</p>

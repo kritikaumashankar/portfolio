@@ -15,7 +15,7 @@ import {Link} from 'react-scroll'
               <Typist>
                 <StyledP>Hi there! I am Kritika. </StyledP>
                 <Typist.Delay ms={100} />
-                <StyledP>Software Developer living in Salt Lake City. </StyledP>
+                <StyledP>Software Developer from Salt Lake City, UT. </StyledP>
               </Typist>
               <Link to="About"><AnimatedButton variant="outline-primary"><h1>Get to know me</h1></AnimatedButton></Link>
             </Div>

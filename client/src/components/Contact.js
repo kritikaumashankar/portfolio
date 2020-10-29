@@ -108,7 +108,7 @@ class Contact extends React.Component{
             </StyledForm>
           </ContentDiv>
           </StyledLazyHero>
-          <Footer/>
+          {/* <Footer/> */}
       </MainContainer>
     )
   }

@@ -7,7 +7,7 @@ const config = require('dotenv').config();
 
 const collection = "clicks";
 const app =express();
-const db = require('./db');
+// const db = require('./db');
 
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json())
@@ -15,58 +15,58 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const PORT = process.env.PORT || 3001
 
 
-db.connect((err)=>{
-  if(err){
-    console.log('unable to connect to DB');
-    console.log(err);
-    process.exit(1);
-  }
-  else{
-    console.log(PORT)
-    app.listen(PORT, () => {
-      console.log(`Server listening on port ${PORT}`)
-    })
-  }
-})
+// db.connect((err)=>{
+//   if(err){
+//     console.log('unable to connect to DB');
+//     console.log(err);
+//     process.exit(1);
+//   }
+//   else{
+//     console.log(PORT)
+//     app.listen(PORT, () => {
+//       console.log(`Server listening on port ${PORT}`)
+//     })
+//   }
+// })
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/build/index.html'))
   
 })
 
-app.get('/',(req,res)=>{
-  db.getDB().collection(collection).find({}).toArray((err,documents)=>{
-    if(err)
-      console.log(err);
-    else{
-      console.log("Connection to DB Successful.")
-      console.log(documents.length);
-      res.json(documents);
+// app.get('/',(req,res)=>{
+//   db.getDB().collection(collection).find({}).toArray((err,documents)=>{
+//     if(err)
+//       console.log(err);
+//     else{
+//       console.log("Connection to DB Successful.")
+//       console.log(documents.length);
+//       res.json(documents);
 
-    }
-  });
-})
-app.post('/',(req,res)=>{
-  console.log("inside  post method");
-  const clicks= req.body;
-    db.getDB().collection(collection).insertOne(clicks,(err,result)=>{
-      if(err){
-        console.log("Failed to insert Todo ");
-        console.log(err);
-      }
-      else{
+//     }
+//   });
+// })
+// app.post('/',(req,res)=>{
+//   console.log("inside  post method");
+//   const clicks= req.body;
+//     db.getDB().collection(collection).insertOne(clicks,(err,result)=>{
+//       if(err){
+//         console.log("Failed to insert Todo ");
+//         console.log(err);
+//       }
+//       else{
 
-        if(result.result.ok == 1){
-         db.getDB().collection(collection,function(err,collection){
-            collection.find({}).toArray(function(err, result) {
-              if (err) throw err;
-               res.json({result : result,views : result.length,error : null});
-            })
-          });
-        }
-      }
-    });
+//         if(result.result.ok == 1){
+//          db.getDB().collection(collection,function(err,collection){
+//             collection.find({}).toArray(function(err, result) {
+//               if (err) throw err;
+//                res.json({result : result,views : result.length,error : null});
+//             })
+//           });
+//         }
+//       }
+//     });
   
-})
+// })
 
 let transporter = nodemailer.createTransport({
       service: 'gmail',

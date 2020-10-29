@@ -10,11 +10,13 @@ const app =express();
 // const db = require('./db');
 
 app.use(express.static(path.join(__dirname, 'build')));
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const PORT = process.env.PORT || 3001
 
-
+app.listen(PORT, () => {
+        console.log(`Server listening on port ${PORT}`)
+ });
 // db.connect((err)=>{
 //   if(err){
 //     console.log('unable to connect to DB');

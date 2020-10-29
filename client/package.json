@@ -28,6 +28,7 @@
     "react-slick": "^0.24.0",
     "react-typist": "^2.0.5",
     "reactstrap": "^6.5.0",
+    "serialize-javascript": "^5.0.1",
     "simple-flexbox": "^1.2.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^4.3.2"

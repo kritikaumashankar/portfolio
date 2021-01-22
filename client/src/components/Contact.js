@@ -1,12 +1,10 @@
 import React from 'react'
 import {  Button, Form, FormGroup,Container, Input,Row,Col } from 'reactstrap'
 import axios from 'axios'
-import LazyHero from 'react-lazy-hero';
 import styled from 'styled-components'
-import Footer from './Footer';
 
 class Contact extends React.Component{
-  state = { name:'', email: '', subject: '', message: '' }
+  state = { name:'', email: '', message: '' }
 
   handleChange =(e) => {
     this.setState( { [e.target.id]: e.target.value } )
@@ -14,12 +12,11 @@ class Contact extends React.Component{
 
   handleSubmit = (e) => {
     e.preventDefault()
-    const { name, email, subject, message } = this.state
+    const { name, email, message } = this.state
     axios.post('/api/form', 
     {
         name: name,   
         email: email,  
-        subject: subject,
         message: message
     }
     ).then((response)=>{
@@ -28,38 +25,25 @@ class Contact extends React.Component{
         }else if(response.data.msg === 'fail'){
             alert("Message failed to send.")
         }
-        this.setState({ name:'', email: '', subject: '', message: '' })
+        this.setState({ name:'', email: '', message: '' })
     })
   }
   render(){
-    const { name, email, subject, message } = this.state
+    const { name, email, message } = this.state
     return(
       <MainContainer id={this.props.id}>
-      <StyledLazyHero imageSrc={process.env.PUBLIC_URL+'/Hero.jpg'}>
           <ContentDiv>
             <LogoDiv>
-              <Span id="contact"><h5>You can get in touch <br/>with me via</h5></Span>
-              <Container>
-              <Row>
-                <Col>
-                    <LinkDiv><a target="blank" href="https://www.facebook.com/kritikaumashankar" style={styles.aflex}><h5>Facebook </h5><I style={styles.svg} className="fab fa-facebook"></I></a> </LinkDiv>
-                </Col>
-                 <Col>
-                    <LinkDiv><a target="blank" href="https://www.linkedin.com/in/kritikaumashankar/" style={styles.aflex}><h5>LinkedIn</h5><I style={styles.svg} className="fab fa-linkedin"></I></a> </LinkDiv> 
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                    <LinkDiv><a target="blank" href="https://hangouts.google.com/call/QUKZbaNCNgqkV-FfOqWeAEEE" style={styles.aflex}><h5>Hangout</h5><I style={styles.svg} className="fab fa-google"></I></a></LinkDiv>
-                </Col>
-                 <Col>
-                    <LinkDiv><a target="blank" href="https://www.instagram.com/kritikashiv/" style={styles.aflex}><h5>Instagram</h5><I style={styles.svg} className="fab fa-instagram"></I></a></LinkDiv>
-                </Col>
-              </Row>
-              </Container>
+              <h5 id="contact">Get In Touch!</h5>
+              <div id="social">
+                    <LinkDiv><a target="blank" href="https://www.facebook.com/kritikaumashankar" style={styles.aflex}><I style={styles.svg} className="fab fa-facebook"></I></a> </LinkDiv>
+                
+                    <LinkDiv><a target="blank" href="https://www.linkedin.com/in/kritikaumashankar/" style={styles.aflex}><I style={styles.svg} className="fab fa-linkedin"></I></a> </LinkDiv> 
+                
+                    <LinkDiv><a target="blank" href="https://www.instagram.com/kritikashiv/" style={styles.aflex}><I style={styles.svg} className="fab fa-instagram"></I></a></LinkDiv>
+              </div>
               <br/>
             </LogoDiv>
-            <Span>(Or)</Span>
             <StyledForm onSubmit={this.handleSubmit}>
               <span>Shoot me a message.</span>
               <FormGroup style={{width: '85%'}}>
@@ -84,17 +68,6 @@ class Contact extends React.Component{
                     />
               </FormGroup>
               <FormGroup style={{width: '85%'}}>
-                  <Input 
-                    type="text" 
-                    name="subject"
-                    required 
-                    id="subject" 
-                    value={subject} 
-                    placeholder="Subject" 
-                    onChange={this.handleChange}
-                    />
-              </FormGroup>
-              <FormGroup style={{width: '85%'}}>
                   <textarea 
                     id="message" 
                     required
@@ -107,222 +80,139 @@ class Contact extends React.Component{
                   <Button style={styles.button} className="text-center">Submit</Button>
             </StyledForm>
           </ContentDiv>
-          </StyledLazyHero>
-          {/* <Footer/> */}
       </MainContainer>
     )
   }
 }
 const MainContainer = styled.div`
   height: 100vh;
+  background-image: url(Hero.jpg);
+  background-position:center;
+  background-size:cover;
 `
 const Span = styled.span`
   font-size: 3rem;
     margin: 2.5rem;
     color: white;
 `
-const StyledLazyHero = styled(LazyHero)`
-  min-height: 100vh;
-  .cYNVMb{
-    background-color: transparent! important;
-  }
 
-`
 const ContentDiv = styled.div`
 
   display: flex;
-  @media only screen and (max-width:1030px){
-      height: 100vh;
-      background-color: rgba(25, 24, 26, 0.7);
-      flex-direction: column;
+
+  @media only screen and (max-width:500px){
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    flex-direction: column;
+    position: relative;
+    text-align: center;
+    width:100vw;
+    h5{
+      font-size: 5vh;
+    }
+      
+      #social{
+        top:0;
+        display: flex;
+        flex-direction: row;
+        justify-center:center;
+      }
+      #contact{
+        color: white;
+        top:1vh;
+        h5{
+          font-size: 1.65rem! important;
+        }
+      }
+      a svg{
+        width: 3vw;
+        height: 3vh;
+        margin: 1vh 1vw;
+      }
+    }
+
+  @media only screen and (min-width:500px) and (max-width:700px){
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    flex-direction: column;
+    position: relative;
+    text-align: center;
+    width:100vw;
+    h5{
+      font-size: 5vw;
+        }
+    
+    #social{
+      top:0;
+      display: flex;
+      flex-direction: row;
+      justify-center:center;
+    }
+      #contact{
+        color: white;
+        top:1vh;
+        h5{
+          font-size: 1.65rem! important;
+        }
+      }
+      a svg{
+        width: 3vw;
+        height: 3vh;
+        margin: 1vh 1vw;
+      }
+    }
+  }
+  @media only screen and (min-width:700px) and (max-width:1030px){
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    flex-direction: column;
+    position: relative;
+    text-align: center;
+    width:100vw;
+    h5{
+      font-size: 5vw;
+        }
+    
+    #social{
       position: relative;
-      text-align: center;
-      width:100vw;
-      span{
-        margin:1rem! important;
-        width:100%;
-        position:inherit;
-        top:2vh;
-        left:-1rem;
-        font-size:1.5rem;
-      }
-      div:nth-child(1){
-        position:relative;
-        height:30vh;
-        width:100%;
-        text-align:center;
-        top: 1vh;
-        left:0;
-        .row{
-          top:0;
-          left:0;
-          width:100%;
-          height:50%;
-        }
-        .col{
-          top:0;
-          left:0;
-          width:100%;
-          height:50%;
-          a{
-            margin:0.5vh 0; 
-          }
-        }
-        #contact{
-          top:1rem;
-          h5{
-            font-size: 1.65rem! important;
-          }
-        }
-        a svg{
-          width: 1.5rem! important;
-          height: 1.5rem! important;
-          margin: 0.25rem! important;
+      top:0;
+      display: flex;
+      flex-direction: row;
+      justify-center:center;
+    }
+      #contact{
+        color: white;
+        top:1vh;
+        h5{
+          font-size: 1.65rem! important;
         }
       }
-      form{
-        width: 100%;
-        height: 45%;
-        top: 0;
-        left: 2rem;
-        span{
-          position: inherit;
-          top: -0.5rem;
-          left: -1.5rem;
-          font-size: 1.5rem;
-          margin: 1rem;
-          color: white;
-        }
-        font-size: 0.75rem! important;
-        div{
-          input{  
-            height: 100%;
-            font-size: 0.75rem! important;
-          }
-          #body{
-            height:15%;
-          }
-          height: 15%;
-        }
-        button{
-          width:50%! important;
-          height: 15%! important;
-          left: -2rem;
-          top: 1rem! important;
-          font-size: 1rem! important;
-        }
+      a svg{
+        width: 3vw;
+        height: 3vh;
+        margin: 1vh 1vw;
       }
     }
-    @media only screen and (max-width:1030px) and (min-height:1000px) and (max-height:1400px){
-      position:relative;
-      height: 100vh;
-      width:100vw;
-      background-color: rgba(25, 24, 26, 0.7);
-      flex-direction: column;
-      text-align: center;
-      span{
-        position:inherit;
-        top:5.5rem;
-        margin:0.5rem;
-        font-size:3rem;
-      }
-      div:nth-child(1){
-        position:relative;
-        height:25vh;
-        width:100%;
-        text-align:center;
-        top: 3rem;
-        left:0;
-        .row{
-          top:0;
-          left:-13rem;
-          width:100%;
-          height:50%;
-        }
-        .col{
-          top:-7rem;
-          left:8rem;
-          width:100%;
-          height:50%;
-          a{
-            margin:0.5vh 0; 
-          }
-        }
-        #contact{
-          top:0;
-          width:100%;
-          height:50%;
-          left:0;
-           text-align: center;
-           color: white;
-           h5{
-           font-size: 3rem! important;
-           }
-         }
-        a svg{
-          width: 3rem! important;
-          height: 3rem! important;
-          margin:0 0.75vw! important;
-        }
-      }
-      form{
-        width: 100%;
-        height: 43%;
-        top: 7.5rem;
-        left: 5rem;
-        font-size: 1.5rem! important;
-        span{
-          position: inherit;
-          top: -3rem;
-          left: -4rem;
-          font-size: 3rem;
-          margin: 2rem;
-          color: white;
-        }
-        div{
-          input{  
-            height: 100%;
-            font-size: 1.5rem! important;
-          }
-          #body{
-            height:15%;
-          }
-          height: 15%;
-        }
-        button{
-          height: 25%;
-          left: -5rem;
-          top: 4rem! important;
-          font-size: 2rem! important;
-        }
-      }
-    }
+  }
+  
+    
   @media only screen and (min-width:1030px){
     position:relative;
-    width:100vw;
-    height: 100vh;
+    width:100%;
+    height: 95%;
       background-color: rgba(25, 24, 26, 0.5);
       flex-direction: row;
       text-align: center;
-      div:nth-child(1){
-        height: 40%;
-        width: 37.5%;
-        text-align: center;
+      h5{
+        font-size: 3.5vw;
+          }
+      #social{
         position: relative;
-        top: 30vh;
-        left: 14rem;
-        .row{
-          top:0rem;
-          left:0rem;
-          width:100%;
-          height:50%;
-        }
-        .col{
-          top:0rem;
-          left:-15rem;
-          width:100%;
-          height:50%;
-        }
+        top:7vh;
+        display: flex;
+        flex-direction: row;
+        justify-center:center;
+      }
          #contact{
            top:0;
            left:0;
@@ -332,40 +222,12 @@ const ContentDiv = styled.div`
           font-size: 2.5rem! important;
           }
         }
-      }
+      
       span{
         position: inherit;
         height: 11%;
         top: 20rem;
-        left: 12vw;
-      }
-      form{
-        width: 45%;
-        height: 75%;
-        top: 10rem;
-        left: 10vw;
-        font-size: 1.5rem! important;
-        span{
-          position: inherit;
-          top: -3rem;
-          left: -4rem;
-          font-size: 2.5rem;
-          margin: 3rem;
-          color: white;
-        }
-        div{
-          input{  
-            height: 100%;
-            font-size: 1.5rem! important;
-          }
-          width: 88%;
-          height: 10%;
-        }
-        button{
-          height: 10%;
-          top: 3rem! important;
-          font-size: 2rem! important;
-        }
+        left: 3vw;
       }
     }
 `
@@ -405,15 +267,122 @@ const StyledForm = styled(Form)`
 position: relative;
 float: right;
 width: 50%;
+@media only screen and (max-width:500px){
+  width: 100%;
+      height: 45%;
+      top: 7vh;
+      left: 7vw;
+      span{
+        position: inherit;
+        top: -0.5rem;
+        left: -1.5rem;
+        font-size: 1.5rem;
+        margin: 1rem;
+        color: white;
+      }
+      font-size: 0.75rem! important;
+      div{
+        input{  
+          height: 100%;
+          font-size: 0.75rem! important;
+        }
+        #body{
+          height:15%;
+        }
+        height: 15%;
+      }
+      button{
+        width:50%! important;
+        height: 15%! important;
+        left: -2rem;
+        top: 1rem! important;
+        font-size: 1rem! important;
+      }
+    }
+  }
+
+  @media only screen and (min-width:500px) and (max-width:1030px){
+      width: 75%;
+      height: 45%;
+      top: 5vh;
+      left: 18vw;
+      span{
+        position: inherit;
+        top: 0;
+        left: -1.5rem;
+        font-size: 3vw;
+        margin: 1rem;
+        color: white;
+      }
+      font-size: 2vw;
+      div{
+        input{  
+          height: 100%;
+          font-size: 2vw;
+        }
+        #body{
+          height:15%;
+        }
+        height: 15%;
+      }
+      button{
+        width:50%! important;
+        height: 15%! important;
+        left: -2rem;
+        top: 3vh! important;
+        font-size: 1rem! important;
+      }
+  }
+ 
+  @media only screen and (min-width:1030px){
+        width: 50%;
+        height: 75%;
+        top: 10rem;
+        left: 15vw;
+        font-size: 1.5rem! important;
+        span{
+          position: inherit;
+          top: -3rem;
+          left: -4rem;
+          font-size: 2.5rem;
+          margin: 3rem;
+          color: white;
+        }
+        div{
+          input{  
+            height: 100%;
+            font-size: 1.5rem! important;
+          }
+          width: 100%;
+          height: 10%;
+        }
+        button{
+          height: 10%;
+          top: 3rem! important;
+          font-size: 2rem! important;
+        }
+      
+    }
 `
 
 
 const LogoDiv = styled.div`
-  width: 50%;
+  width: 80%;
+  height:20%;
   text-align: center;
+  display:flex;
+  flex-direction:column;
   position: relative;
-  left: 17.5vw;
-  top: 10vh;
+  @media only screen and (max-width:1030px){
+    width: 80%;
+    top: 5vh;
+    left: 5vw;
+  }
+  @media only screen and (min-width:1030px){
+    width: 40%;
+    top: 45vh;
+    left: 15vw;
+  }
 `
 const LinkDiv = styled.div`
 width:100%!important;

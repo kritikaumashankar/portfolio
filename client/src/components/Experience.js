@@ -14,6 +14,12 @@ const Experience =()=>{
       <Container>
         <h1>Experience</h1>
         <Row style={{margin:'1.5vh 0'}}>
+            <StyledCol><H2>Dec 2020 - Present</H2></StyledCol>
+            <Col>
+              <H2>Eat Well, Live Well</H2><H3>Freelancing</H3>
+            </Col>
+        </Row>
+        <Row style={{margin:'1.5vh 0'}}>
             <StyledCol><H2>Aug 2018 - Oct 2018</H2></StyledCol>
             <Col>
               <H2>Full Stack Web Developer (Student)</H2><H3>Dev Point Labs</H3>
@@ -39,7 +45,7 @@ const StyledContainer = styled.div`
   width:100%;
   height:50%;
   position: relative;
-  top:10vh;
+  top:3vh;
   color:white;
   display: flex;
   margin:0;
@@ -78,28 +84,28 @@ const StyledCol =styled(Col)`
 `
 const H2 = styled.h2`
 text-align:center;
-@media screen and (min-width:300px){
+@media screen and (min-width:200px){
   font-size:2vh;
 }
 @media screen and (min-width:700px){
-  font-size:3.5vw;
+  font-size:2vh;
 }
-@media screen and (min-width:1100px){
+@media screen and (min-width:1000px){
   font-size:2vw;
 }`
 const H3 = styled.h3`
-@media screen and (min-width:300px){
+@media screen and (min-width:200px){
   font-size:1.5vh;
 }
 @media screen and (min-width:700px){
   font-size:2.5vh;
 }
-@media screen and (min-width:1100px){
-  font-size:2vw;
+@media screen and (min-width:1000px){
+  font-size:1.5vw;
 }`
 const I = styled.i`
 margin:1vw;
-@media screen and (min-width:300px){
+@media screen and (min-width:200px){
   font-size:5vh;
 }
 @media screen and (min-width:700px){

@@ -24,20 +24,19 @@ import Experience from './Experience';
     axios.get(base_url)
            .then(response => {
             this.setState({projectList: response.data
-           .filter(i=> ["Blackjack","KS-Billboard","Magic8Ball","FlashCards","Portfolio"].includes(i["name"]))
+           .filter(i=> ["eatWellLiveWell","Portfolio","magic8ballNextjs"].includes(i["name"]))
                           });
       });
 
   }
 
   displaySlides=() =>{
-     return this.state.projectList.sort((a,b)=>(a.id - b.id)).map((item,i)=>{
+     return this.state.projectList.map((item,i)=>{
       return(
             <StyledCard key="front">
-            <CardHeader><strong>{item["name"]}</strong></CardHeader>
+            <CardHeader><A target="_blank" href={item["homepage"]} key={0}><strong>{item["name"]}</strong></A></CardHeader>
               <StyledCardBody>
-              <CardText><strong>{item["description"]}</strong></CardText>
-              <A href={item["svn_url"]} key={0}><Button>GitHub</Button></A>
+                <CardText><strong>{item["description"]}</strong></CardText>
               </StyledCardBody>
             </StyledCard>
      )});
@@ -82,7 +81,7 @@ import Experience from './Experience';
           <StyledSlider {...settings}>
             {slides}
               <StyledCard key="front">
-                <CardHeader><strong>Enterprise International</strong></CardHeader>
+                <CardHeader><A target="_blank" href="https://dps-enterprise-international.herokuapp.com/" key={0}><strong>Enterprise International</strong></A></CardHeader>
                 <StyledCardBody>
                 <CardText> <strong>
                     Final Portfolio project in bootcamp with a team of 5.
@@ -91,7 +90,6 @@ import Experience from './Experience';
                     Destinations and Trips as Admin user. Technologies: Front-End: React,styled-components, Semantic; Back-End: Rails;
                     DB: PostgreSQL.</strong>
                   </CardText>
-                  <A href="https://dps-enterprise-international.herokuapp.com/" key={0}><Button>Website</Button></A>
                 </StyledCardBody>
               </StyledCard>
           </StyledSlider>
@@ -121,7 +119,8 @@ import Experience from './Experience';
     width:100%;
     height:50%;
     position: relative;
-    @media screen and (min-width:300px){
+    @media screen and (min-width:200px){
+      top: 3vh;
       div#project{
         color: white;
         text-align: center;
@@ -133,7 +132,7 @@ import Experience from './Experience';
       div#project{
         color: white;
         text-align: center;
-        font-size:2rem;
+        font-size:2vw;
       }
   
     }
@@ -157,7 +156,7 @@ import Experience from './Experience';
     //   left: -7vw;
     // }
     
-  @media screen and (min-width:300px){
+  @media screen and (min-width:200px){
     top: 2vh;
     left: 2rem;
     width:80%;
@@ -189,9 +188,9 @@ import Experience from './Experience';
  const StyledCard = styled(Card)`
    margin: auto;
    text-decoration: none;
-   @media screen and (min-width:300px){
+   @media screen and (min-width:200px){
     width: 80vw!important;
-    height: 38vh;
+    height: 35vh;
    }
    @media screen and (min-width:700px){
     width: 42vw!important;
@@ -203,7 +202,7 @@ import Experience from './Experience';
    }
    @media screen and (min-width:1100px){
     width: 35vw!important;
-    height: 35vh;
+    height: 30vh;
     .card-header{
       font-size:2.5vw;
       text-align:center;
@@ -220,27 +219,17 @@ import Experience from './Experience';
    width: 100%;
    padding: 0.5rem;  
    text-align: center;
-   @media screen and (max-width:350px){
-    height:100%;
-     &:nth-child(1){
-       span{
-        font-size:1rem;
-       }
-     }
-    span, p,button{
-      font-size:3vw;
-    }
-  }
-  @media screen and (min-width:350px){
+   
+  @media screen and (min-width:200px){
     height:100%;
     span,p, button{
-      font-size:0.7rem;
+      font-size:2vh;
     }
   }
   @media screen and (min-width:700px){
     height:88%;
     span,p,button{
-      font-size:2vw;
+      font-size:1.7vw;
     }
   
   }

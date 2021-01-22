@@ -58,7 +58,7 @@ const IntroSection = styled.aside`
     width:65%;
     height:90%;
     p{
-      font-size: 1.35rem;
+      font-size: 2vh;
       padding: 1rem;
     }
   }
@@ -68,7 +68,7 @@ const IntroSection = styled.aside`
     height:100%;
     p{
       width: 100%;
-      font-size: 1.85rem;
+      font-size: 2vh;
       padding: 1rem;
     }
   }
@@ -83,7 +83,7 @@ const IntroSection = styled.aside`
       width: 80%;
       left: 5vw;
       position: relative;
-      font-size: 1.15rem;
+      font-size: 1.25vw;
       padding: 1rem;
     }
   }

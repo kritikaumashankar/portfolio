@@ -6,7 +6,7 @@ const Experience =()=>{
     <StyledContainer>
       <ResumeDiv>
         <span><H2>Resume Download</H2></span>
-          <a href={'./KritikaUmaShankar.pdf'} download><I className='far fa-file-pdf' style={{color:'red',backgroundColor:'white'}}></I></a>
+          <a href={'./KritikaUmashankar.pdf'} download><I className='far fa-file-pdf' style={{color:'red',backgroundColor:'white'}}></I></a>
            <a href={'./KritikaUmaShankar.docx'} download><I className='far fa-file-word' style={{color:'blue',backgroundColor:'white'}}></I></a>
       </ResumeDiv>
       <Container>
